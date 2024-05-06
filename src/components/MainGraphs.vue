@@ -9,23 +9,38 @@ import {
   CategoryScale,
   LinearScale, 
   ArcElement, 
-  PieController
+  PieController,
+  DoughnutController,
+  LineController,
+  LineElement, 
+  PointElement
 } from 'chart.js';
 import { Bar } from 'vue-chartjs';
 import { Pie } from 'vue-chartjs';
+import { Doughnut } from 'vue-chartjs'; 
+import { Line } from 'vue-chartjs';
 
 const type = ref('Pie');
-const chartComponent = shallowRef(type.value === 'Pie' ? Bar : Pie);
+const chartComponent = shallowRef(
+  type.value === 'Pie' ? Bar : 
+  type.value === 'Bar' ? Doughnut :
+  type.value === 'Doughnut' ? Line : Pie);
 
-ChartJS.register(Title, Tooltip, Legend, ArcElement,  BarElement, CategoryScale, LinearScale, PieController);
+ChartJS.register(Title, Tooltip, Legend, ArcElement, PointElement, BarElement, CategoryScale, LinearScale, PieController, DoughnutController, LineController, LineElement);
 
 const handleType = () => {
     if (type.value === 'Pie') {
-        type.value = 'Bar';
+        type.value = 'Line';
         chartComponent.value = Pie;
     } else if (type.value === 'Bar') {
         type.value = 'Pie';
         chartComponent.value = Bar;
+    } else if (type.value === 'Line') {
+        type.value = 'Doughnut';
+        chartComponent.value = Line;
+    } else if (type.value === 'Doughnut') {
+        type.value = 'Bar';
+        chartComponent.value = Doughnut;
     };
 }
 
@@ -118,7 +133,7 @@ const handleGraph = () => {
 <template>
     <div>
         <h2>{{ titles[title] }}</h2>
-        <button @click="handleGraph" >Next</button>
+        <button @click="handleGraph">Next</button>
     </div>
 
     <div class="chartContainer">
