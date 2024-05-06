@@ -20,12 +20,12 @@ const birthsUKData = ref({
       label: 'Number of Births in UK in mln',
       data: [7.2, 7.3, 6.7, 6.7, 6.8, 6.4],
       backgroundColor: [
-        'rgba(255, 99, 132, 0.5)', 
-        'rgba(54, 162, 235, 0.5)', 
-        'rgba(255, 206, 86, 0.5)', 
-        'rgba(75, 192, 192, 0.5)', 
-        'rgba(153, 102, 255, 0.5)', 
-        'rgba(255, 159, 64, 0.5)' 
+        '#6643b5', 
+        '#f0d43a', 
+        '#8594e4', 
+        '#ff7e67', 
+        '#42b883', 
+        '#eb2632' 
       ]
     }
   ]
@@ -56,12 +56,12 @@ const deathsUKData = ref({
       label: 'Number of Deaths in UK in mln',
       data: [0.7, 0.8, 0.9, 1.0, 1.1, 1.2], 
       backgroundColor: [
-        'rgba(255, 99, 132, 0.5)', 
-        'rgba(54, 162, 235, 0.5)', 
-        'rgba(255, 206, 86, 0.5)', 
-        'rgba(75, 192, 192, 0.5)', 
-        'rgba(153, 102, 255, 0.5)', 
-        'rgba(255, 159, 64, 0.5)' 
+        '#79c2d0', 
+        '#53a8b6', 
+        '#5585b5', 
+        '#00bbf0', 
+        '#005792', 
+        '#00204a' 
       ]
     }
   ]
@@ -74,12 +74,12 @@ const deathsWorldData = ref({
       label: 'Number of Deaths Worldwide in mln',
       data: [33.9, 36.5, 39.5, 43.5, 48.1, 55.3], 
       backgroundColor: [
-        'rgba(255, 99, 132, 0.5)', 
-        'rgba(54, 162, 235, 0.5)', 
-        'rgba(255, 206, 86, 0.5)', 
-        'rgba(75, 192, 192, 0.5)', 
-        'rgba(153, 102, 255, 0.5)', 
-        'rgba(255, 159, 64, 0.5)' 
+        '#ffc93c', 
+        '#ff9a3c', 
+        '#ff6f3c', 
+        '#f95959', 
+        '#c3195d', 
+        '#680747' 
       ]
     }
   ]
