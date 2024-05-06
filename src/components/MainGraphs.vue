@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref} from 'vue'
+import { ref, shallowRef} from 'vue';
 import {
   Chart as ChartJS,
   Title,
@@ -7,11 +7,28 @@ import {
   Legend,
   BarElement,
   CategoryScale,
-  LinearScale
-} from 'chart.js'
-import { Bar } from 'vue-chartjs'
+  LinearScale, 
+  ArcElement, 
+  PieController
+} from 'chart.js';
+import { Bar } from 'vue-chartjs';
+import { Pie } from 'vue-chartjs';
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
+
+const type = ref('Bar');
+const chartComponent = shallowRef(type.value === 'Bar' ? Bar : Pie);
+
+ChartJS.register(Title, Tooltip, Legend, ArcElement,  BarElement, CategoryScale, LinearScale, PieController);
+
+const handleType = () => {
+    if (type.value === 'Bar') {
+        type.value = 'Pie';
+        chartComponent.value = Pie;
+    } else {
+        type.value = 'Bar';
+        chartComponent.value = Bar;
+    };
+}
 
 const birthsUKData = ref({
     labels: ['1960s', '1970s', '1980s', '1990s', '2000s', '2010s'],
@@ -106,11 +123,13 @@ const handleGraph = () => {
     </div>
 
     <div class="chartContainer">
-        <Bar
+        <component
+            :is="chartComponent" 
             :options="chartOptions"
             :data="data[title].value"
         />
     </div>
+    <button @click="handleType">{{ type }}</button>
 </template>
 
 <style scoped>
