@@ -88,3 +88,67 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+@media screen and (max-width: 786px) {
+
+  #app {
+    max-width: 786px;
+    margin: 0 auto;
+    padding: 0.5rem 0;
+  }
+
+  h1 {
+    font-size: 3em;
+  }
+  
+  h2 {
+    font-size: 1em;
+  }
+  
+  .footer {
+    font-size: 0.7em;
+  }
+  
+  button {
+    border-radius: 7px;
+    padding: 0.5em 1.1em;
+    font-size: 0.8em;
+    margin: 5px 0 25px 0;
+  }
+
+  button:hover {
+    padding: 0.5em 0.8em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+
+  #app {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 0.1rem 0;
+  }
+
+  h1 {
+    font-size: 2.8em;
+  }
+  
+  h2 {
+    font-size: 0.9em;
+  }
+  
+  .footer {
+    font-size: 0.6em;
+  }
+  
+  button {
+    border-radius: 6px;
+    padding: 0.4em 1em;
+    font-size: 0.7em;
+    margin: 15px 0 25px 0;
+  }
+
+  button:hover {
+    padding: 0.4em 0.7em;
+  }
+}
