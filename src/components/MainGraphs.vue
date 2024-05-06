@@ -14,18 +14,17 @@ import {
 import { Bar } from 'vue-chartjs';
 import { Pie } from 'vue-chartjs';
 
-
-const type = ref('Bar');
-const chartComponent = shallowRef(type.value === 'Bar' ? Bar : Pie);
+const type = ref('Pie');
+const chartComponent = shallowRef(type.value === 'Pie' ? Bar : Pie);
 
 ChartJS.register(Title, Tooltip, Legend, ArcElement,  BarElement, CategoryScale, LinearScale, PieController);
 
 const handleType = () => {
-    if (type.value === 'Bar') {
-        type.value = 'Pie';
-        chartComponent.value = Pie;
-    } else {
+    if (type.value === 'Pie') {
         type.value = 'Bar';
+        chartComponent.value = Pie;
+    } else if (type.value === 'Bar') {
+        type.value = 'Pie';
         chartComponent.value = Bar;
     };
 }
@@ -138,5 +137,11 @@ const handleGraph = () => {
     padding: 20px;
     border-radius: 10px;
     border: 3px solid black;
+}
+
+@media screen and (max-width: 480px) {
+    .chartContainer {
+        max-width: 270px;
+    }
 }
 </style>
